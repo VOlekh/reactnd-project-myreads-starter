@@ -2,7 +2,7 @@ import React from 'react'
 import BookShelfChanger from './BookShelfChanger.js'
 
 export default function BookShelf(props) {
-    const books =  this.props.books
+    const books =  props.books
     return(
         <div className="bookshelf">
         <h2 className="bookshelf-title">Currently Reading</h2>

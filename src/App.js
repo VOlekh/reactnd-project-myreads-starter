@@ -21,6 +21,10 @@ const shelf3 = [
 
 ]
 
+const currently_reading_shelf = {shelfTitle: 'Currently Reading', id: 'currentlyReading'};
+const want_to_read_shelf = {shelfTitle: 'Want To Read', id: 'wantToRead'};
+const read_shelf = {shelfTitle:'Read',   id: 'read'};
+
 class BooksApp extends React.Component {
   state = {
     /**
@@ -44,9 +48,9 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf books={shelf1}></BookShelf>
-                <BookShelf books={shelf2}></BookShelf>
-                <BookShelf books={shelf3}></BookShelf>
+                <BookShelf books={shelf1} shelf={currently_reading_shelf}></BookShelf>
+                <BookShelf books={shelf2} shelf={want_to_read_shelf}></BookShelf>
+                <BookShelf books={shelf3} shelf={read_shelf}></BookShelf>
               </div>
             </div>
             <div className="open-search">

@@ -46,7 +46,9 @@ class BooksApp extends React.Component {
       )};
 
   render() {
-    console.log ("BookApi outcome", this.state.books)
+    console.log ("BooksApi outcome", this.state.books)
+    const books_on_shelf = this.state.books.filter (book =>book.shelf === 'currentlyReading' )
+    console.log ("Filtered books on shelf", books_on_shelf)
     return (
       <div className="app">
         {this.state.showSearchPage ? (
@@ -58,7 +60,7 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf books={shelf1} shelf={currently_reading_shelf}></BookShelf>
+                <BookShelf books={books_on_shelf} shelf={currently_reading_shelf}></BookShelf>
                 <BookShelf books={shelf2} shelf={want_to_read_shelf}></BookShelf>
                 <BookShelf books={shelf3} shelf={read_shelf}></BookShelf>
               </div>

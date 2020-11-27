@@ -49,6 +49,8 @@ class BooksApp extends React.Component {
     console.log ("BooksApi outcome", this.state.books)
     const books_on_shelf = this.state.books.filter (book =>book.shelf === 'currentlyReading' )
     console.log ("Filtered books on shelf", books_on_shelf)
+
+
     return (
       <div className="app">
         {this.state.showSearchPage ? (

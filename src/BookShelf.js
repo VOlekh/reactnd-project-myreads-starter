@@ -12,7 +12,7 @@ export default function BookShelf( props) {
           <ol className="books-grid">
                   {props.books.map((book) => {
                 return(
-                 <Book  book={book}></Book>
+                 <Book key = {book.id} book={book}></Book>
                 ) 
                  })}     
             

@@ -31,7 +31,8 @@ class SearchBooks extends Component {
         ? books
         : books.filter(
             (b) =>
-              b.title.toLowerCase().includes(query.toLowerCase()) // || b.authors.toLowerCase().includes(query.toLowerCase())
+              b.title.toLowerCase().includes(query.toLowerCase()) 
+              || b.authors.some((item) => item.toLowerCase().includes(query.toLowerCase()))
           );
 
     return (

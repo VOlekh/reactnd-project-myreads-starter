@@ -28,6 +28,18 @@ class BooksApp extends React.Component {
         })}
       )};
 
+  onUpdateBook = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+      this.setState((currentState) => ({
+        books: currentState.books.map((b) => {
+          if (b.id === book.id) {
+            b.shelf = shelf;
+              }
+                return b
+            })
+        }))
+  }      
+
   render() {
     console.log ("BooksApi outcome", this.state.books)
     const books_on_shelf = this.state.books.filter (book =>book.shelf === 'currentlyReading' )

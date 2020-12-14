@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import BookShelf from "./BookShelf";
 import Book from "./Book.js";
 import BooksApp from "./App.js";
+import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends Component {
   state = {
@@ -12,7 +13,7 @@ class SearchBooks extends Component {
   // updateQuery() then calls setState(), merging in the new state to update the component's internal state.
   updateQuery = (query) => {
     this.setState(() => ({
-      guery: query.trim(),
+      query: query.trim(),
     }));
   };
 
@@ -21,15 +22,16 @@ class SearchBooks extends Component {
   };
 
   render() {
-    const { query, books } = this.state;
+    const query = this.state.query;
+    const books = this.props.books;
+    console.log(books)
 
     const showingBooks =
       query === ""
         ? books
         : books.filter(
             (b) =>
-              b.title.toLowerCase().includes(query.toLowerCase()) ||
-              b.authors.toLowerCase().includes(query.toLowerCase())
+              b.title.toLowerCase().includes(query.toLowerCase()) // || b.authors.toLowerCase().includes(query.toLowerCase())
           );
 
     return (
@@ -64,9 +66,9 @@ class SearchBooks extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {/* <BookShelf books={books} title='Search' onUpdateBook={onUpdateBook}/> */}
+            {/* <BookShelf books={books} title='Search' onUpdateBook={onUpdateBook}/>  */}
             {showingBooks.map((book) => (
-              <li key={book.id}>
+              <li key={book.id} className = 'books-grid-item'>
                 <Book book={book} />
               </li>
             ))}

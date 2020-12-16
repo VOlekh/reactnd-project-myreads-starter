@@ -1,9 +1,10 @@
 import React from 'react'
 import Book from './Book.js'
+import PropTypes from 'prop-types'
 
 
 
-export default function BookShelf( props) {
+export default function BookShelf(props) {
 
     return(
         <div className="bookshelf">
@@ -13,7 +14,10 @@ export default function BookShelf( props) {
                   {props.books.map((book) => {
                 return(
                   <li key={book.id} className='books-grid-item'>
-                  <Book book={book}/>
+                  <Book 
+                    book={book}
+                    onUpdateBook={props.onUpdateBook}
+                  />
                 </li>
                  )})}     
           </ol>

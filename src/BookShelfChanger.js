@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function BookShelfChanger ({book, onUpdateBook}) {
+export default function BookShelfChanger(props) {
     return(
         <div className="book-shelf-changer">
-            <select>
-            {/* <select onChange={(event) => {onUpdateBook(book, event.target.value)}} 
-              defaultValue= {book.shelf ? book.shelf : 'none'}> */}
+            <select onChange={(event) => {props.onUpdateBook(props.book, event.target.value)}} 
+            defaultValue= { props.book.shelf ? props.book.shelf : 'none'}>
+            
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>

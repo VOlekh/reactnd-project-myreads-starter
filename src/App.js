@@ -65,9 +65,9 @@ render() {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf books={books_on_shelf} shelf={currently_reading_shelf}></BookShelf>
-                <BookShelf books={books_on_shelf2} shelf={want_to_read_shelf}></BookShelf>
-                <BookShelf books={books_on_shelf3} shelf={read_shelf}></BookShelf>
+                <BookShelf books={books_on_shelf} shelf={currently_reading_shelf} onUpdateBook={this.onUpdateBook}></BookShelf>
+                <BookShelf books={books_on_shelf2} shelf={want_to_read_shelf} onUpdateBook={this.onUpdateBook}></BookShelf>
+                <BookShelf books={books_on_shelf3} shelf={read_shelf} onUpdateBook={this.onUpdateBook}></BookShelf>
               </div>
             </div>
             <div className="open-search">

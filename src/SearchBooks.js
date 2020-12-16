@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import BookShelf from "./BookShelf";
 import Book from "./Book.js";
-import BooksApp from "./App.js";
-import * as BooksAPI from './BooksAPI'
+
 
 class SearchBooks extends Component {
   state = {
@@ -69,7 +66,7 @@ class SearchBooks extends Component {
           <ol className="books-grid">
             {/* <BookShelf books={books} title='Search' onUpdateBook={onUpdateBook}/>  */}
             {showingBooks.map((book) => (
-              <li key={book.id} className = 'books-grid-item'>
+              <li key={book.id} className='books-grid-item'>
                 <Book book={book} />
               </li>
             ))}

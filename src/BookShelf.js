@@ -12,11 +12,10 @@ export default function BookShelf( props) {
           <ol className="books-grid">
                   {props.books.map((book) => {
                 return(
-                 <Book key = {book.id} book={book}></Book>
-                ) 
-                 })}     
-            
-       
+                  <li key={book.id} className='books-grid-item'>
+                  <Book book={book}/>
+                </li>
+                 )})}     
           </ol>
         </div>
       </div>

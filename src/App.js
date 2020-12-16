@@ -3,6 +3,9 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf.js'
 import SearchBooks from './SearchBooks.js'
+import {BrowserRouter} from 'react-router-dom'
+import {Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const currently_reading_shelf = {shelfTitle: 'Currently Reading', id: 'currentlyReading'};
 const want_to_read_shelf = {shelfTitle: 'Want To Read', id: 'wantToRead'};
@@ -40,7 +43,7 @@ class BooksApp extends React.Component {
         }))
   }      
 
-  render() {
+render() {
     console.log ("BooksApi outcome", this.state.books)
     const books_on_shelf = this.state.books.filter (book =>book.shelf === 'currentlyReading' )
     const books_on_shelf2 = this.state.books.filter (book =>book.shelf === 'wantToRead' )
@@ -50,7 +53,12 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
+    
         {this.state.showSearchPage ? (
+          // <Route exact path='/search' render = {()=>(
+          //   <SearchBooks books={this.state.books}></SearchBooks>
+          // )}/>
+          
           <SearchBooks books={this.state.books}></SearchBooks>
         ) : (
           <div className="list-books">
@@ -65,10 +73,11 @@ class BooksApp extends React.Component {
               </div>
             </div>
             <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <button component={Link} to="/search" onClick={() => this.setState({ showSearchPage: true })} >Add a book</button>
             </div>
           </div>
         )}
+  
       </div>
     )
   }

@@ -55,7 +55,7 @@ render() {
         
 
         <Route exact path='/search' render = {()=>(
-          <SearchBooks books={this.state.books}></SearchBooks>
+          <SearchBooks books={this.state.books} onUpdateBook={this.onUpdateBook} ></SearchBooks>
         )}/>
 
         <Route exact path="/">

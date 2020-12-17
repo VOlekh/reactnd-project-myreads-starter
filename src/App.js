@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf.js'
 import SearchBooks from './SearchBooks.js'
+import BookDetails from './BookDetails.js'
 import {Route} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 
@@ -58,6 +59,10 @@ render() {
           <SearchBooks books={this.state.books} onUpdateBook={this.onUpdateBook} ></SearchBooks>
         )}/>
 
+        <Route exact path='/book/:id' render={(props) =>(
+          <BookDetails book={this.state.books.find((item) => item.id === props.match.params.id)}/>
+        )}/>
+           
         <Route exact path="/">
           <div className="list-books">
             <div className="list-books-title">

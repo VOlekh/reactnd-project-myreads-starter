@@ -142,6 +142,11 @@ button:active {
   width: 140px;
 }
 
+.book-details
+{
+  width: 140px; 
+}
+
 .book-title,
 .book-authors {
   font-size: 0.8em;

@@ -14,6 +14,8 @@ I've made following to compleat the progect:
 
 To compare my work with the template you can find starter template in  [start repository](https://github.com/udacity/reactnd-project-myreads-starter).
 
+Please find A Book Lending App specification in [PROJECT SPECIFICATION](https://review.udacity.com/#!/rubrics/918/view)
+
 ## Design
 ![image](img/MyReads.gif)
 

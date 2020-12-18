@@ -142,11 +142,6 @@ button:active {
   width: 140px;
 }
 
-.book-details
-{
-  width: 140px; 
-}
-
 .book-title,
 .book-authors {
   font-size: 0.8em;
@@ -200,4 +195,77 @@ button:active {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* Book details*/
+
+.book-details-authors{
+  color: #999;
+}
+
+.book-info-wrapper ul{
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.book-info-wrapper ul li{
+  margin-left: -40px;
+  list-style: none;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.book-info-wrapper ul li span{
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+
+.card-wrapper{
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.card{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 320px 100%;
+}
+
+.book-img-wrapper{
+  grid-column: span 1 ;
+  justify-content: center;
+}
+
+.book-info-wrapper{
+  grid-column: span 1;
+  justify-content: center;
+}
+
+.book-description-wrapper{
+  grid-column: span 2;
+  justify-content: center;
+}
+
+
+
+@media screen and (min-width: 992px) {
+  .card{
+    display:grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 320px ;
+  }
+  .book-img-wrapper{
+   
+  }
+
+  .book-info-wrapper{
+    
+  }
+
+  .book-description-wrapper{
+
+  }
+
 }

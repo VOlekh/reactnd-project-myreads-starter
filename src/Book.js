@@ -7,9 +7,9 @@ export default function Book(props) {
         <div className="book">
         <div className="book-top">
           <Link to={`/book/${props.book.id}`}>
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${props.book.imageLinks ? props.book.imageLinks.thumbnail : "#"}")` }}></div> 
-              <BookShelfChanger book={props.book} onUpdateBook={props.onUpdateBook} />
+            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${props.book.imageLinks ? props.book.imageLinks.thumbnail : "#"}")` }}></div>  
           </Link>
+            <BookShelfChanger book={props.book} onUpdateBook={props.onUpdateBook} />  
         </div>
 
           <div className="book-title">{props.book.title}</div>

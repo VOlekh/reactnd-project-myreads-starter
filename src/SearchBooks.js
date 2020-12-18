@@ -44,7 +44,7 @@ class SearchBooks extends Component {
             Close
           </button> */}
           <div className="search-books-input-wrapper">
-            {JSON.stringify(this.state)}
+            {/* {JSON.stringify(this.state)} */}
             {/*
             NOTES: The search from BooksAPI is limited to a particular set of search terms.
             You can find these search terms here:

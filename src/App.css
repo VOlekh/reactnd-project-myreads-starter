@@ -246,6 +246,7 @@ button:active {
 .book-description-wrapper{
   grid-column: span 2;
   justify-content: center;
+  margin: 20px;
 }
 
 
@@ -253,19 +254,25 @@ button:active {
 @media screen and (min-width: 992px) {
   .card{
     display:grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 320px ;
+    
+    grid-template-columns: 1fr 1fr;
+    
   }
   .book-img-wrapper{
-   
+    grid-column: span 2;
+    justify-content: center;
+    align-content: space-evenly;
+ 
   }
 
   .book-info-wrapper{
-    
+    grid-column: span 2;
+    justify-content: center;
   }
 
   .book-description-wrapper{
-
+    grid-column: span 2;
+    justify-content: center;
   }
 
 }

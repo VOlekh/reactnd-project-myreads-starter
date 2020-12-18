@@ -25,7 +25,7 @@ export default function BookDetails (props) {
                             <div className="card">
 
                                 <div className = "book-img-wrapper">
-                                    <div className="book-cover" style={{ width: 256, height: 286, backgroundSize: 'auto', backgroundRepeat: 'no-repeat', backgroundImage: `url("${props.book.imageLinks ? props.book.imageLinks.thumbnail : "#"}")` }}></div>
+                                    <div className="book-cover" style={{ width: 128, height: 193, margin: 30 , backgroundImage: `url("${props.book.imageLinks ? props.book.imageLinks.thumbnail : "#"}")` }}></div>
                                 </div>
 
                                 <div className = "book-info-wrapper">

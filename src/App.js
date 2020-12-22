@@ -24,24 +24,24 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount () {
+    this.getAllBooks();
+  }
+
+  getAllBooks = () => {
     BooksAPI.getAll()
-      .then(books => {
-        this.setState({
-          books
-        })}
-      )};
+    .then(books => {
+      this.setState({
+        books
+      })}
+    )};
+  
 
   onUpdateBook = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-      this.setState((currentState) => ({
-        books: currentState.books.map((b) => {
-          if (b.id === book.id) {
-            b.shelf = shelf;
-              }
-                return b
-            })
-        }))
-  }      
+    BooksAPI.update(book, shelf).then(() => {
+      this.getAllBooks();
+      })
+
+  }     
 
 render() {
     console.log ("BooksApi outcome", this.state.books)

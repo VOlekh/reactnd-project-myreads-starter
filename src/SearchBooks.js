@@ -1,48 +1,56 @@
-import React, { Component } from "react"
-import Book from "./Book.js"
-import {Link} from 'react-router-dom'
-
+import React, { Component } from "react";
+import Book from "./Book.js";
+import * as BooksAPI from "./BooksAPI";
+import { Link } from "react-router-dom";
 
 class SearchBooks extends Component {
   state = {
     query: "",
     books: [],
   };
-  // updateQuery() then calls setState(), merging in the new state to update the component's internal state.
+
   updateQuery = (query) => {
     this.setState(() => ({
-      query: query.trim(),
+      query: query,
     }));
+    if (query !== "") {
+      this.onSearchBook(query);
+    } else {
+      this.setState(() => ({
+        books: [],
+      }));
+    }
   };
 
   clearQuery = () => {
     this.updateQuery("");
   };
 
+  onSearchBook = (query) => {
+    BooksAPI.search(query).then((books) => {
+      if (!books.error && this.state.query !== "") {
+        this.setState({
+          books: books,
+        });
+      } else {
+        this.setState({
+          books: [],
+        });
+      }
+    });
+  };
+
   render() {
     const query = this.state.query;
-    const books = this.props.books;
-    console.log(books)
-
-    const showingBooks =
-      query === ""
-        ? books
-        : books.filter(
-            (b) =>
-              b.title.toLowerCase().includes(query.toLowerCase()) 
-              || b.authors.some((item) => item.toLowerCase().includes(query.toLowerCase()))
-          );
+    const books = this.state.books;
+    console.log(books);
 
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to='/' className="close-search">Close</Link>
-          {/* <button
-            className="close-search"
-            onClick={() => this.setState({ showSearchPage: false })}
-          >
+          <Link to="/" className="close-search">
             Close
-          </button> */}
+          </Link>
           <div className="search-books-input-wrapper">
             {/* {JSON.stringify(this.state)} */}
             {/*
@@ -66,9 +74,9 @@ class SearchBooks extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {showingBooks.map((book) => (
-              <li key={book.id} className='books-grid-item'>
-                <Book book={book} onUpdateBook={this.props.onUpdateBook}/>
+            {books.map((book) => (
+              <li key={book.id} className="books-grid-item">
+                <Book book={book} onUpdateBook={this.props.onUpdateBook} />
               </li>
             ))}
           </ol>

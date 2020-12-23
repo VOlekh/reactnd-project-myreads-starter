@@ -29,9 +29,26 @@ class SearchBooks extends Component {
   onSearchBook = (query) => {
     BooksAPI.search(query).then((books) => {
       if (!books.error && this.state.query !== "") {
+
+        books = books.map((book) => {
+          const bookOnShelf = this.props.books.find((b) => book.id === b.id);
+          let shelf = 'none'
+          if (bookOnShelf)
+          {
+            shelf = bookOnShelf.shelf
+          }
+          return {
+            ...book,
+            shelf: shelf,
+          }
+         })
+      
         this.setState({
           books: books,
+        
         });
+
+
       } else {
         this.setState({
           books: [],

@@ -27,13 +27,22 @@ class BooksApp extends React.Component {
     this.getAllBooks();
   }
 
-  getAllBooks = () => {
-    BooksAPI.getAll()
-    .then(books => {
-      this.setState({
-        books
-      })}
-    )};
+  // Instead of using .then() function on promises, we can use async/await keywords.
+  //Before
+  // getAllBooks = () => {
+  //   BooksAPI.getAll()
+  //   .then(books => {
+  //     this.setState({
+  //       books
+  //     })}
+  //   )};
+
+  //After
+  getAllBooks = async () =>{
+    const books = await BooksAPI.getAll();
+    this.setState ({books});
+ 
+  };
   
 
   onUpdateBook = (book, shelf) => {
@@ -54,10 +63,14 @@ render() {
     return (
       <div className="app">
         
-
-        <Route exact path='/search' render = {()=>(
+        {/* To render something when a route is matched, we can also pass it as a child instead of using the render props. */}
+        {/* <Route exact path='/search' render = {()=>(
           <SearchBooks books={this.state.books} onUpdateBook={this.onUpdateBook} ></SearchBooks>
-        )}/>
+        )}/> */}
+
+        <Route exact path='/search'>
+          <SearchBooks books={this.state.books} onUpdateBook={this.onUpdateBook}/>
+        </Route>
 
         <Route exact path='/book/:id' render={(props) =>(
           <BookDetails book={this.state.books.find((item) => item.id === props.match.params.id)}/>
